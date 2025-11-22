@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: live-price-dashboard-backend
+  main:
+    allow-circular-references: true
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crypto_dashboard
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:shivam73}
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:mySecretKey1234567890123456789012345678901234567890}
+    expiration: 86400000 # 24 hours
+
+api:
+  coingecko:
+    base-url: https://api.coingecko.com/api/v3
+  alpha-vantage:
+    key: ${ALPHA_VANTAGE_KEY:demo}
+    base-url: https://www.alphavantage.co/query
+
+logging:
+  level:
+    com.example.live_price_dashboard_backend: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG

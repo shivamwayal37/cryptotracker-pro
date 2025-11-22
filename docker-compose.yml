@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: crypto-dashboard-postgres
+    environment:
+      POSTGRES_DB: crypto_dashboard
+      POSTGRES_USER: dashboard_user
+      POSTGRES_PASSWORD: dashboard_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - crypto-dashboard-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: crypto-dashboard-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - crypto-dashboard-network
+    restart: unless-stopped
+
+  backend:
+    build: 
+      context: ./live-price-dashboard-backend
+      dockerfile: Dockerfile
+    container_name: crypto-dashboard-backend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: postgres
+      DB_USERNAME: dashboard_user
+      DB_PASSWORD: dashboard_pass
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: your-super-secret-jwt-key-change-in-production
+      ALPHA_VANTAGE_KEY: demo
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - crypto-dashboard-network
+    restart: unless-stopped
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: crypto-dashboard-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - crypto-dashboard-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  crypto-dashboard-network:
+    driver: bridge
