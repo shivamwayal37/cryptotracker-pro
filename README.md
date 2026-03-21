@@ -94,11 +94,11 @@ This project started as an experiment in real-time financial data streaming and 
 
 ### Backend Stack
 
-![Alt text]()
+![backend](assets/backend.png)
 
 ### Frontend Stack
 
-![Alt text](image-source)
+![frontend](assets/frontend.png)
 
 ### Tech Stack Details
 
@@ -134,10 +134,12 @@ This project started as an experiment in real-time financial data streaming and 
 ## 🏭 Architecture
 
 ### System Architecture
-![Alt text](image-source)
+
+![Architecture](assets/Architecture.png)
 
 ### Event Flow Diagram
-![Alt text](image-source)
+
+![lifecycle](assets/lifecycle.png)
 
 ### Why Event-Driven?
 
