@@ -93,40 +93,12 @@ This project started as an experiment in real-time financial data streaming and 
 ## ⚡️ Technologies
 
 ### Backend Stack
-```
-┌─────────────────────────────────────┐
-│         Spring Boot 3.x             │
-│  ┌──────────┐  ┌─────────────────┐ │
-│  │  Spring  │  │  Spring Data    │ │
-│  │ Security │  │  JPA/MongoDB    │ │
-│  └──────────┘  └─────────────────┘ │
-│  ┌──────────┐  ┌─────────────────┐ │
-│  │   JWT    │  │   WebSocket     │ │
-│  │   Auth   │  │   (STOMP)       │ │
-│  └──────────┘  └─────────────────┘ │
-└─────────────────────────────────────┘
-         │              │
-         ▼              ▼
-   ┌──────────┐   ┌──────────┐
-   │PostgreSQL│   │  Redis   │
-   │/MongoDB  │   │  Cache   │
-   └──────────┘   └──────────┘
-```
+
+![Alt text]()
 
 ### Frontend Stack
-```
-┌─────────────────────────────────────┐
-│          React 18.x                 │
-│  ┌──────────┐  ┌─────────────────┐ │
-│  │   Vite   │  │  TailwindCSS    │ │
-│  │  Build   │  │    Styling      │ │
-│  └──────────┘  └─────────────────┘ │
-│  ┌──────────┐  ┌─────────────────┐ │
-│  │ Chart.js │  │   SockJS +      │ │
-│  │ Recharts │  │   StompJS       │ │
-│  └──────────┘  └─────────────────┘ │
-└─────────────────────────────────────┘
-```
+
+![Alt text](image-source)
 
 ### Tech Stack Details
 
@@ -162,44 +134,10 @@ This project started as an experiment in real-time financial data streaming and 
 ## 🏭 Architecture
 
 ### System Architecture
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Frontend (React)                      │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
-│  │Dashboard │  │Watchlist │  │  Charts  │  │  Alerts  │   │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
-└────────────────────┬────────────────────────────────────────┘
-                     │ HTTP/REST + WebSocket
-                     ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   Spring Boot Backend                        │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │Auth Service  │  │Price Service │  │Alert Service │     │
-│  │  (JWT)       │  │ (WebSocket)  │  │ (Scheduler)  │     │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-│  ┌──────────────┐  ┌──────────────┐                        │
-│  │   Watchlist  │  │Price Fetcher │                        │
-│  │   Service    │  │ (Scheduled)  │                        │
-│  └──────────────┘  └──────────────┘                        │
-└────────────┬──────────────┬──────────────┬─────────────────┘
-             │              │              │
-             ▼              ▼              ▼
-      ┌──────────┐   ┌──────────┐   ┌──────────┐
-      │PostgreSQL│   │  Redis   │   │ External │
-      │/MongoDB  │   │  Cache   │   │   APIs   │
-      └──────────┘   └──────────┘   └──────────┘
-```
+![Alt text](image-source)
 
 ### Event Flow Diagram
-```
-External APIs → Price Fetcher → Redis Cache → WebSocket → Frontend
-       ↓              ↓              ↓            ↓
-   (REST API)   (Scheduled)    (5s cache)  (Real-time)
-                     ↓
-              Alert Service → Check Thresholds → Notification
-                                                      ↓
-                                              WebSocket Push
-```
+![Alt text](image-source)
 
 ### Why Event-Driven?
 
