@@ -649,8 +649,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Project Maintainer**: Your Name
 - Email: wayalshivam7@gmail.com
-- X.com: [@yourhandle](https://x.com/wayalshivam7)
-- LinkedIn: [Your Profile](www.linkedin.com/in/shivam-wayal)
+- X.com: [@wayalshivam7](https://x.com/wayalshivam7)
+- LinkedIn: [shivam-wayal](www.linkedin.com/in/shivam-wayal)
 
 **Project Link**: [https://github.com/yourusername/cryptotracker-pro](https://github.com/yourusername/cryptotracker-pro)
 
