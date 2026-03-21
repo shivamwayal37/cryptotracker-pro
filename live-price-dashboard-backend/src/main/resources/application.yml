@@ -8,10 +8,13 @@ spring:
     allow-circular-references: true
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/crypto_dashboard
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:shivam73}
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:sqlite:./crypto_dashboard.db
+    driver-class-name: org.sqlite.JDBC
+    # PostgreSQL config for non-local environments:
+    # url: jdbc:postgresql://localhost:5432/crypto_dashboard
+    # username: ${DB_USERNAME:postgres}
+    # password: ${DB_PASSWORD:shivam73}
+    # driver-class-name: org.postgresql.Driver
     
   jpa:
     hibernate:
@@ -19,7 +22,8 @@ spring:
     show-sql: false
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.community.dialect.SQLiteDialect
+        # dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         
   data:

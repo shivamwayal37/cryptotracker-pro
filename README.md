@@ -7,10 +7,7 @@ Real-time cryptocurrency and stock price tracking platform with intelligent aler
 
 **USE THIS SOFTWARE AT YOUR OWN RISK. THE AUTHOR ASSUMES NO LIABILITY FOR YOUR TRADING OUTCOMES OR INVESTMENT DECISIONS.**
 
-![Dashboard](./docs/images/dashboard.png)
-![Watchlist](./docs/images/watchlist.png)
-![Price Chart](./docs/images/chart.png)
-![Alerts](./docs/images/alerts.png)
+![Dashboard](assets/Dashboard.JPG)
 
 ---
 
@@ -215,8 +212,8 @@ api:
 **Build and Run:**
 ```bash
 cd backend
-./mvnw clean install
-./mvnw spring-boot:run
+./gradlew clean install
+./gradlew run
 ```
 
 Backend will start on `http://localhost:8080`
@@ -247,7 +244,7 @@ Frontend will start on `http://localhost:5173`
 
 **Run Flyway migrations (if using):**
 ```bash
-./mvnw flyway:migrate
+./gradlew flyway:migrate
 ```
 
 **Or use the provided SQL scripts:**
@@ -258,26 +255,6 @@ psql -U your_user -d cryptotracker < database/schema.sql
 ---
 
 ## ⚙️ Configuration
-
-### Asset Configuration
-
-Configure which symbols to track in `backend/src/main/resources/application.yml`:
-```yaml
-app:
-  symbols:
-    crypto:
-      - BTC
-      - ETH
-      - ADA
-      - DOT
-      - SOL
-    stocks:
-      - AAPL
-      - GOOGL
-      - TSLA
-      - NVDA
-      - MSFT
-```
 
 ### Fetcher Configuration
 
