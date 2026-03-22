@@ -652,7 +652,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - X.com: [@wayalshivam7](https://x.com/wayalshivam7)
 - LinkedIn: [shivam-wayal](www.linkedin.com/in/shivam-wayal)
 
-**Project Link**: [https://github.com/yourusername/cryptotracker-pro](https://github.com/yourusername/cryptotracker-pro)
+**Project Link**: [https://github.com/shivamwayal37/cryptotracker-pro](https://github.com/shivamwayal37/cryptotracker-pro)
 
 ---
 
