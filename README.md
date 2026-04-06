@@ -647,7 +647,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-**Project Maintainer**: Your Name
+**Project Maintainer**: Shivam Wayal
 - Email: wayalshivam7@gmail.com
 - X.com: [@wayalshivam7](https://x.com/wayalshivam7)
 - LinkedIn: [shivam-wayal](www.linkedin.com/in/shivam-wayal)
